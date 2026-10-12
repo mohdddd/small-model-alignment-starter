@@ -119,14 +119,23 @@ def sequence_logprobs(model, batch: Dict[str, torch.Tensor]):
     attention_mask = batch["attention_mask"].to(device)
     labels = batch["labels"].to(device)
 
-    logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
-    logits = logits[:, :-1, :].float()
+    logits = model(input_ids=input_ids, attention_mask=attention_mask).logits[:, :-1, :]
     targets = labels[:, 1:]
     mask = targets.ne(IGNORE_INDEX)
     safe_targets = targets.masked_fill(~mask, 0)
 
-    selected = logits.gather(-1, safe_targets.unsqueeze(-1)).squeeze(-1)
-    token_logps = selected - torch.logsumexp(logits, dim=-1)
+    if torch.is_grad_enabled():
+        # training: autograd keeps the fp32 logits anyway, so do the whole batch at once
+        lg = logits.float()
+        token_logps = lg.gather(-1, safe_targets.unsqueeze(-1)).squeeze(-1) - torch.logsumexp(lg, dim=-1)
+    else:
+        # eval / reference: upcast one row at a time (a full fp32 [B, T, 150k] copy can be >4 GB)
+        rows = []
+        for i in range(logits.shape[0]):
+            lg = logits[i].float()
+            rows.append(lg.gather(-1, safe_targets[i].unsqueeze(-1)).squeeze(-1) - torch.logsumexp(lg, dim=-1))
+            del lg
+        token_logps = torch.stack(rows)
     token_logps = token_logps * mask
     return token_logps.sum(-1), mask.sum(-1)
 

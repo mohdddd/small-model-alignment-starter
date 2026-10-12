@@ -7,10 +7,13 @@ broken by higher margin) plus the final checkpoint.
 
 from __future__ import annotations
 
+import os
+
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")  # before torch import
+
 import argparse
 import json
 import math
-import os
 import sys
 import time
 
@@ -45,7 +48,7 @@ def parse_args(argv=None):
     ap.add_argument("--epochs", type=int, default=1)
     ap.add_argument("--eval_every", type=int, default=100, help="optimizer steps")
     ap.add_argument("--log_every", type=int, default=5)
-    ap.add_argument("--eval_batch_size", type=int, default=8, help="pairs")
+    ap.add_argument("--eval_batch_size", type=int, default=4, help="pairs")
     ap.add_argument("--max_train_examples", type=int, default=None)
     ap.add_argument("--max_val_examples", type=int, default=None)
     ap.add_argument("--max_steps", type=int, default=None)
