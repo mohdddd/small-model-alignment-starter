@@ -6,7 +6,9 @@ tqdm
 pyyaml
 sentencepiece
 safetensors
-matplotlib
-peft>=0.11.0
-bitsandbytes>=0.43.0
 pytest>=8
+matplotlib
+# Task 5 only (TRL DPOTrainer + LoRA). trl 0.24.0 is pinned: trl>=1.0 uses a Triton
+# fused LM-head kernel that is not needed here and is riskier on T4 GPUs.
+trl==0.24.0
+peft>=0.13
