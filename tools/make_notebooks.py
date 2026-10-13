@@ -219,7 +219,8 @@ for f in sorted(glob.glob("outputs/generations/*.json")):
 
 NOTEBOOKS["06_judge"] = [
     md("# pa2-judge — Task 7: pairwise judging with Kaggle model proxy\n"
-       "Create this notebook as a **Kaggle Benchmarks** notebook (so `kaggle_benchmarks` + the model proxy are available). "
+       "Must run as a **Kaggle Benchmarks task notebook** (so `kaggle_benchmarks` + the free model proxy are available): "
+       "create it from kaggle.com/benchmarks (Create task) or Copy & Edit a benchmark starter notebook, then paste these cells. "
        "Accelerator: None. Internet on. **Add Input → Notebook Output → pa2-generate.**\n"
        "Batches of 5, ≥5 s sleep before every request, 3 retries, judgments checkpointed after every batch, failures "
        "logged, `--reuse_judgments` resumes. Run the smoke cell interactively first, then **Save & Run All (Commit)**."),
@@ -263,6 +264,12 @@ for name in PAIRS:
         print("   persona criteria:", {k: (v["wins"], v["losses"], v["ties"]) for k, v in s["persona"].items()})
     for cat, c in s["by_category"].items():
         print(f"     {cat:28s} W/L/T {c['wins']}/{c['losses']}/{c['ties']}")'''),
+    md("Verbosity check: candidate win rate when its answer is longer / similar / shorter than the baseline's."),
+    code('''import analyze_judgments as A
+for name in PAIRS:
+    print(f"\\n== {name}")
+    A.main(["--pairs", f"outputs/pairs/{name}.jsonl", "--judged", f"outputs/eval/{name}_judged.jsonl",
+            "--out", f"outputs/eval/{name}_length_analysis.json"])'''),
     code("!cd outputs && zip -qr /kaggle/working/judge_outputs.zip eval pairs && ls -la eval"),
 ]
 

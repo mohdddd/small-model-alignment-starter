@@ -131,6 +131,15 @@ class KaggleBackend:
         self.kbench = kbench
         self.llm = self._resolve(model_name)
         self.model_name = model_name
+        self._mode = None   # "direct" or "task", decided on the first call
+        self._box = {}
+        box = self._box
+
+        @self.kbench.task(name="pairwise_judge_batch")
+        def _judge_task(llm):  # registered once; reads the pending prompt from the box
+            box["out"] = llm.prompt(box["prompt"])
+
+        self._task = _judge_task
 
     def _resolve(self, name):
         kb = self.kbench
@@ -153,25 +162,38 @@ class KaggleBackend:
             return llms[matches[0]]
         raise RuntimeError(f"Judge model {name!r} not found (tried {tried}). Available: {keys}")
 
-    def __call__(self, prompt):
+
+    def _direct(self, prompt):
         try:
             return str(self.llm.prompt(prompt, temperature=0))
         except TypeError:
             return str(self.llm.prompt(prompt))
-        except Exception as direct_err:  # some SDK versions only allow calls inside a task
-            box = {}
 
-            @self.kbench.task(name="pairwise_judge_batch")
-            def _judge_task(llm):
-                box["out"] = llm.prompt(prompt)
+    def _via_task(self, prompt):
+        self._box.clear()
+        self._box["prompt"] = prompt
+        try:
+            self._task.run(llm=self.llm)
+        except TypeError:
+            self._task.run(self.llm)
+        if "out" not in self._box:
+            raise RuntimeError("judge task produced no output")
+        return str(self._box["out"])
 
-            try:
-                _judge_task.run(llm=self.llm)
-            except Exception as task_err:
-                raise RuntimeError(f"direct call failed ({direct_err}); task call failed ({task_err})")
-            if "out" not in box:
-                raise RuntimeError(f"no output from judge (direct error: {direct_err})")
-            return str(box["out"])
+    def __call__(self, prompt):
+        if self._mode == "direct":
+            return self._direct(prompt)
+        if self._mode == "task":
+            return self._via_task(prompt)
+        try:  # first call: try a plain call, fall back to a task (some SDK versions require one)
+            out = self._direct(prompt)
+            self._mode = "direct"
+        except Exception as direct_err:
+            print(f"[judge] direct llm.prompt failed ({type(direct_err).__name__}: {direct_err}); using a kbench task")
+            out = self._via_task(prompt)
+            self._mode = "task"
+        print(f"[judge] call mode: {self._mode}")
+        return out
 
 
 class DummyBackend:
