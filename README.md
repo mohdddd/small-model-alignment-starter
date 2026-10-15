@@ -1,7 +1,6 @@
 # Small-Model Alignment: SFT + DPO on Qwen2.5-0.5B
 
-From-scratch SFT and DPO (no HF `Trainer`, no TRL) on `Qwen/Qwen2.5-0.5B`, a TRL `DPOTrainer` + LoRA persona
-experiment on `HuggingFaceTB/SmolLM2-360M-Instruct`, and blinded pairwise LLM-judge evaluation on Kaggle T4 x2.
+This is our code for PA2. We wrote our own SFT and DPO loops (no HF `Trainer` and no TRL) for `Qwen/Qwen2.5-0.5B`, trained a persona model on `HuggingFaceTB/SmolLM2-360M-Instruct` with the TRL `DPOTrainer` and LoRA, and then compared the models with a blinded pairwise LLM judge. Everything was run on Kaggle with two T4 GPUs.
 
 ## Layout
 
@@ -39,9 +38,7 @@ tests/                       public smoke tests + extra edge-case and parser tes
 | DPO checkpoint | best validation reward accuracy (strict `r_w > r_l`), ties broken by margin; plus final |
 | Decoding | greedy, `repetition_penalty=1.1`, `max_new_tokens=512`, same for every model in a comparison |
 
-Guide defaults are the script defaults (SFT: lr 2e-5, 3% warmup + cosine, wd 0.1, 2×16; DPO: β 0.1,
-fixed lr 1e-6, AdamW, 1×32; both 1 epoch, clip 1.0, context 512, seed 42). Every run writes its resolved
-settings to `outputs/<run>/config.json`.
+The default values in our scripts are the guide values (SFT: lr 2e-5, 3% warmup + cosine, wd 0.1, 2×16 and DPO: β 0.1, fixed lr 1e-6, AdamW, 1×32, with 1 epoch, clip 1.0, context 512 and seed 42 for both). Every run also saves the settings it actually used in `outputs/<run>/config.json`, so these can be checked against the report.
 
 ## Running on Kaggle (T4 x2)
 
@@ -55,14 +52,13 @@ settings to `outputs/<run>/config.json`.
 | `05_generate` | outputs of 01–04 | Commit | ~45 min |
 | `06_judge` | `05_generate` output | Kaggle **Benchmarks** notebook, no GPU, run interactively (benchmark notebooks cannot be committed; the judge is resumable) | ~40 min per judging pass |
 
-Import each with **File → Import Notebook** (or upload the `.ipynb`). The first cell of every
-notebook clones this repo and installs dependencies without touching Kaggle's PyTorch.
+Each notebook can be imported with **File → Import Notebook** or by uploading the `.ipynb`. The first cell of every notebook clones this repo and installs the dependencies without reinstalling Kaggle's PyTorch, so a notebook can be run on a fresh session as it is.
 
-Local tests: `PYTHONPATH=. python -m pytest -q tests/` (public adapter tests + edge cases + parser tests).
+The tests can be run locally with `PYTHONPATH=. python -m pytest -q tests/` which runs the public adapter tests and our own edge-case and parser tests.
 
 ## Results (judge: `google/gemini-3.6-flash`, every pair judged in both A/B orders)
 
-A model gets a win only if it wins in **both** orders; disagreement counts as a tie.
+We judged every pair twice with A and B swapped, and a model only gets a win if it wins in both orders, otherwise we count it as a tie.
 
 | Comparison | Eval set | DPO W / L / T | Win rate (excl. ties) | 95% CI | p (sign test) |
 |---|---|---|---|---|---|
@@ -70,12 +66,11 @@ A model gets a win only if it wins in **both** orders; disagreement counts as a 
 | UltraFeedback DPO vs SFT | AlpacaEval subset, 300 (seed 42) | 78 / 98 / 124 | 44.3% | 37–52% | 0.15 |
 | LoRA-DPO vs SmolLM2-360M-Instruct | persona prompts, 24 | 8 / 13 / 3 | 38.1% | 21–59% | 0.38 |
 
-Persona criteria (LoRA vs base, both orders): style 9/0/15, helpfulness 5/13/6, safety 2/1/21.
-Full numbers: `outputs/eval/final_stats.json`.
+For the persona model we also looked at each criterion separately, where it gets style 9/0/15, helpfulness 5/13/6 and safety 2/1/21 against the base model (both orders). All the numbers are in `outputs/eval/final_stats.json`.
 
 ## Report
 
-`report/report.pdf` (source `report/report.tex`; results figure: `python scripts/make_results_fig.py outputs report/fig/results.png`).
+The report is submitted separately as a PDF. The figures that it uses are in `report/fig/` and the results figure can be made again with `python scripts/make_results_fig.py outputs report/fig/results.png`.
 
 ## Where everything is
 
@@ -91,6 +86,4 @@ Full numbers: `outputs/eval/final_stats.json`.
 | Judgments, summaries, length analysis, swap consistency | `outputs/eval/` |
 | Run logs | `outputs/logs/` |
 
-Model weights (SFT, both DPO policies, LoRA adapter) are not committed because of GitHub size limits;
-they are in the saved outputs of the Kaggle notebooks `01_sft`–`04_lora_persona`
-(`outputs/<run>/best/`, `outputs/<run>/final/`, `outputs/lora_persona/adapter/`).
+We did not put the model weights (SFT, both DPO policies and the LoRA adapter) in this repo as they are too large for GitHub. They are saved in the outputs of the Kaggle notebooks `01_sft` to `04_lora_persona` (`outputs/<run>/best/`, `outputs/<run>/final/` and `outputs/lora_persona/adapter/`).
