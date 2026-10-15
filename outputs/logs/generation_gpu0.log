@@ -1,0 +1,129 @@
+The tokenizer you are loading from '/kaggle/input/notebooks/mohammadkhan10/01-sft/repo/outputs/sft/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[qwen2.5-0.5b-sft] 16/300 (14s)
+[qwen2.5-0.5b-sft] 32/300 (27s)
+[qwen2.5-0.5b-sft] 48/300 (45s)
+[qwen2.5-0.5b-sft] 64/300 (61s)
+[qwen2.5-0.5b-sft] 80/300 (76s)
+[qwen2.5-0.5b-sft] 96/300 (91s)
+[qwen2.5-0.5b-sft] 112/300 (102s)
+[qwen2.5-0.5b-sft] 128/300 (114s)
+[qwen2.5-0.5b-sft] 144/300 (122s)
+[qwen2.5-0.5b-sft] 160/300 (139s)
+[qwen2.5-0.5b-sft] 176/300 (157s)
+[qwen2.5-0.5b-sft] 192/300 (174s)
+[qwen2.5-0.5b-sft] 208/300 (191s)
+[qwen2.5-0.5b-sft] 224/300 (204s)
+[qwen2.5-0.5b-sft] 240/300 (222s)
+[qwen2.5-0.5b-sft] 256/300 (241s)
+[qwen2.5-0.5b-sft] 272/300 (258s)
+[qwen2.5-0.5b-sft] 288/300 (276s)
+[qwen2.5-0.5b-sft] 300/300 (291s)
+================================================================================ 
+Q: What are the names of some famous actors that started their careers on Broadway? 
+A: 1. Marlon Brando
+2. Robert De Niro
+3. Tom Hiddleston
+4. John Lithgow
+5. Michael Cimino
+6. Stanley Kubrick
+7. Christopher Plummer
+8. Tim Robbins
+9. Robert De Niro Jr.
+10. James Whitmore
+================================================================================ 
+Q: Hi, my sister and her girlfriends want me to play kickball with them. Can you explain how the game is played, so they don't take advantage of me? 
+A: Sure! Here's a basic description of how kickball works:
+
+1. The ball is thrown by one player from the front court towards the back court.
+2. The other team must block the ball before it can reach their goal.
+3. If the ball hits another player or goes out of bounds, that player gets a point.
+4. The first team to score 5 points wins.
+
+To avoid taking advantage of you, make sure to keep your head down and focus on blocking the ball. Also, try not to get distracted by other players or distractions in the area. Remember, the goal is to win as many points as possible for your team.
+================================================================================ 
+Q: What is some cool music from the 1920s? 
+A: Some cool music from the 1920s includes:
+
+1. "The Star-Spangled Banner" by Francis Scott Key
+2. "The Star-Spangled Banner" by Francis Scott Key and Robert F. Kennedy
+3. "The Star-Spangled Banner" by Francis Scott Key, Robert F. Kennedy, and John Philip Sousa
+4. "The Star-Spangled Banner" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, and Henry Mancini
+5. "The Star-Spangled Banner" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, Henry Mancini, and Paul Whiteman
+6. "The Star-Spangled Banner" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, Henry Mancini, Paul 
+wrote outputs/generations/alpaca_sft.json 291s
+The tokenizer you are loading from '/kaggle/input/notebooks/mohammadkhan10/03-dpo-uf/repo/outputs/dpo_uf/best' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[qwen2.5-0.5b-dpo-uf] 16/300 (13s)
+[qwen2.5-0.5b-dpo-uf] 32/300 (28s)
+[qwen2.5-0.5b-dpo-uf] 48/300 (45s)
+[qwen2.5-0.5b-dpo-uf] 64/300 (61s)
+[qwen2.5-0.5b-dpo-uf] 80/300 (79s)
+[qwen2.5-0.5b-dpo-uf] 96/300 (93s)
+[qwen2.5-0.5b-dpo-uf] 112/300 (110s)
+[qwen2.5-0.5b-dpo-uf] 128/300 (125s)
+[qwen2.5-0.5b-dpo-uf] 144/300 (140s)
+[qwen2.5-0.5b-dpo-uf] 160/300 (157s)
+[qwen2.5-0.5b-dpo-uf] 176/300 (174s)
+[qwen2.5-0.5b-dpo-uf] 192/300 (191s)
+[qwen2.5-0.5b-dpo-uf] 208/300 (208s)
+[qwen2.5-0.5b-dpo-uf] 224/300 (224s)
+[qwen2.5-0.5b-dpo-uf] 240/300 (241s)
+[qwen2.5-0.5b-dpo-uf] 256/300 (258s)
+[qwen2.5-0.5b-dpo-uf] 272/300 (274s)
+[qwen2.5-0.5b-dpo-uf] 288/300 (291s)
+[qwen2.5-0.5b-dpo-uf] 300/300 (309s)
+================================================================================ 
+Q: What are the names of some famous actors that started their careers on Broadway? 
+A: 1. Marlon Brando - "The Last Temptation of Christ" (1963)
+2. Robert De Niro - "Taxi Driver" (1976)
+3. Tom Hiddleston - "The Crown" (2011)
+4. John Lithgow - "The Bridge on the Drina" (1985)
+5. Michael Cimino - "Parasite" (1989)
+6. Christopher Plummer - "The Deer Hunter" (1989)
+7. Tim Robbins - "Raging Bull" (1980)
+8. Robert De Niro - "The Deer Hunter" (1989)
+9. Tom Hardy - "Black Swan" (2019)
+10. Emma Stone - "The Devil Wears Prada" (2019)
+================================================================================ 
+Q: Hi, my sister and her girlfriends want me to play kickball with them. Can you explain how the game is played, so they don't take advantage of me? 
+A: Sure! Here's a basic description of kickball:
+
+Kickball is a team sport that involves two teams of four players each. The objective of the game is to score more points than your opponents in one set of 15 minutes.
+
+To start, both teams line up on opposite ends of a rectangular field, about 20 yards apart. Each player takes their place at one end of the field, facing the other team's goal line.
+
+The ball is placed in the center of the field, between the two goal posts. Players are given a ball by the referee or a teammate, and they must use it to move forward until they reach the opposing team'
+================================================================================ 
+Q: What is some cool music from the 1920s? 
+A: 1. "The Star-Spangled Banner" by Francis Scott Key - This patriotic song was written during the War of 1812 and became a national anthem in the United States.
+
+2. "I'm Gonna Be" by The Beatles - This iconic rock 'n' roll hit, released in 1967, features a catchy melody and memorable lyrics about the American Dream.
+
+3. "Take It Easy" by Chuck Berry - This classic country song, recorded in 1945, showcases Berry's unique style and signature guitar playing.
+
+4. "Blue Moon of Kentucky" by Bob Dylan - This folk song, originally performed in 1962, tells the story of a man who dreams of winning the lo
+wrote outputs/generations/alpaca_dpo_uf.json 309s
+`torch_dtype` is deprecated! Use `dtype` instead!
+[smollm2-360m-instruct] 16/24 (19s)
+[smollm2-360m-instruct] 24/24 (41s)
+================================================================================ 
+Q: How do I make my scrambled eggs creamier? 
+A: Sure, here's how you can make your scrambled eggs creamier:
+
+1. Add more milk to the egg mixture. The more milk you add, the creamier the eggs will be. 
+
+2. Stir in some heavy cream or half-and-half. This will give your scrambled eggs a richer flavor and a thicker consistency.
+
+3. If you want it even creamier, you could also add some grated cheese like cheddar or parmesan. Just stir that into the mix as well.
+
+4. You can also try adding some salt and pepper to enhance the flavors of your scrambled eggs.
+
+5. Finally, if you're feeling extra fancy, you could try adding some chopped fresh herbs l
+================================================================================ 
+Q: My risotto always turns out gluey. What am I doing wrong? 
+A: I'm sorry for the confusion, but as an AI designed to assist with text-based conversations and general knowledge queries, I don't have the ability to provide culinary advice or specific cooking instructions like how to fix a sticky risotto. However, you can try adjusting the cooking time or temperature of your rice according to the recipe's guidelines. If it still doesn't work, consider checking if you're using the right type of rice (arborio, carnaroli, etc.) and cooking method.
+================================================================================ 
+Q: Can I put frozen chicken straight into the slow cooker? 
+A: No, it's not recommended to put frozen chicken directly into the slow cooker. The cold temperature can cause the meat to become tough and dry over time. It's best to thaw the chicken in the refrigerator overnight or for at least 8 hours before cooking it in the slow cooker. This will help soften the meat and make it more tender.
+wrote outputs/generations/persona_smol_base.json 41s

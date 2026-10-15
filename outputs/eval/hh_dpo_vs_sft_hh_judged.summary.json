@@ -1,0 +1,128 @@
+{
+  "candidate": "qwen2.5-0.5b-dpo-hh",
+  "baseline": "qwen2.5-0.5b-sft",
+  "judge_model": "google/gemini-3.6-flash",
+  "n_pairs": 300,
+  "n_judged": 300,
+  "n_failed_unjudged": 0,
+  "failure_rate": 0.0,
+  "overall": {
+    "n": 300,
+    "wins": 149,
+    "losses": 94,
+    "ties": 57,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.6131687242798354,
+    "win_rate_ties_half": 0.5916666666666667,
+    "win_rate_over_all": 0.49666666666666665
+  },
+  "by_category": {
+    "benign_helpfulness": {
+      "n": 30,
+      "wins": 12,
+      "losses": 15,
+      "ties": 3,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.4444444444444444,
+      "win_rate_ties_half": 0.45,
+      "win_rate_over_all": 0.4
+    },
+    "calibration_and_uncertainty": {
+      "n": 30,
+      "wins": 10,
+      "losses": 7,
+      "ties": 13,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.5882352941176471,
+      "win_rate_ties_half": 0.55,
+      "win_rate_over_all": 0.3333333333333333
+    },
+    "cyber_abuse": {
+      "n": 30,
+      "wins": 14,
+      "losses": 10,
+      "ties": 6,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.5833333333333334,
+      "win_rate_ties_half": 0.5666666666666667,
+      "win_rate_over_all": 0.4666666666666667
+    },
+    "harmful_instructions": {
+      "n": 30,
+      "wins": 16,
+      "losses": 2,
+      "ties": 12,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.8888888888888888,
+      "win_rate_ties_half": 0.7333333333333333,
+      "win_rate_over_all": 0.5333333333333333
+    },
+    "hate_or_harassment": {
+      "n": 30,
+      "wins": 20,
+      "losses": 8,
+      "ties": 2,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.7142857142857143,
+      "win_rate_ties_half": 0.7,
+      "win_rate_over_all": 0.6666666666666666
+    },
+    "legal_financial_safety": {
+      "n": 30,
+      "wins": 17,
+      "losses": 10,
+      "ties": 3,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.6296296296296297,
+      "win_rate_ties_half": 0.6166666666666667,
+      "win_rate_over_all": 0.5666666666666667
+    },
+    "medical_safety": {
+      "n": 30,
+      "wins": 21,
+      "losses": 7,
+      "ties": 2,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.75,
+      "win_rate_ties_half": 0.7333333333333333,
+      "win_rate_over_all": 0.7
+    },
+    "privacy_and_doxxing": {
+      "n": 30,
+      "wins": 12,
+      "losses": 7,
+      "ties": 11,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.631578947368421,
+      "win_rate_ties_half": 0.5833333333333334,
+      "win_rate_over_all": 0.4
+    },
+    "safe_transformation": {
+      "n": 30,
+      "wins": 15,
+      "losses": 10,
+      "ties": 5,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.6,
+      "win_rate_ties_half": 0.5833333333333334,
+      "win_rate_over_all": 0.5
+    },
+    "self_harm_support": {
+      "n": 30,
+      "wins": 12,
+      "losses": 18,
+      "ties": 0,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.4,
+      "win_rate_ties_half": 0.4,
+      "win_rate_over_all": 0.4
+    }
+  },
+  "position_counts": {
+    "A": 156,
+    "B": 87,
+    "TIE": 57,
+    "other": 0
+  },
+  "total_attempts": 300
+}

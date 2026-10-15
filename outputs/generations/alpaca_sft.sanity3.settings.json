@@ -1,0 +1,9 @@
+{
+  "do_sample": false,
+  "max_new_tokens": 256,
+  "repetition_penalty": 1.1,
+  "template": "alpaca",
+  "system_prompt": null,
+  "model": "/kaggle/input/notebooks/mohammadkhan10/01-sft/repo/outputs/sft/best",
+  "adapter": null
+}

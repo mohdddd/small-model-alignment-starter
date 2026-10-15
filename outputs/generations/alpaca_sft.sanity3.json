@@ -1,0 +1,29 @@
+[
+  {
+    "id": "alpaca-0000",
+    "instruction": "What are the names of some famous actors that started their careers on Broadway?",
+    "output": "1. Marlon Brando\n2. Robert De Niro\n3. Tom Hiddleston\n4. John Lithgow\n5. Michael Cimino\n6. Stanley Kubrick\n7. Christopher Plummer\n8. Tim Robbins\n9. Robert De Niro Jr.\n10. James Whitmore",
+    "generator": "qwen2.5-0.5b-sft",
+    "dataset": "alpaca_eval",
+    "new_tokens": 66,
+    "hit_max_new_tokens": false
+  },
+  {
+    "id": "alpaca-0002",
+    "instruction": "Hi, my sister and her girlfriends want me to play kickball with them. Can you explain how the game is played, so they don't take advantage of me?",
+    "output": "Sure! Here's a basic description of how kickball works:\n\n1. The ball is thrown by one player from the front court towards the back court.\n2. The other team must block the ball before it can reach their goal.\n3. If the ball hits another player or goes out of bounds, that player gets a point.\n4. The first team to score 5 points wins.\n\nTo avoid taking advantage of you, make sure to keep your head down and focus on blocking the ball. Also, try not to get distracted by other players or distractions in the area.",
+    "generator": "qwen2.5-0.5b-sft",
+    "dataset": "alpaca_eval",
+    "new_tokens": 117,
+    "hit_max_new_tokens": false
+  },
+  {
+    "id": "alpaca-0003",
+    "instruction": "What is some cool music from the 1920s?",
+    "output": "Some cool music from the 1920s includes:\n\n1. \"The Star-Spangled Banner\" by Francis Scott Key\n2. \"The Star-Spangled Banner\" by Francis Scott Key and Robert F. Kennedy\n3. \"The Star-Spangled Banner\" by Francis Scott Key, Robert F. Kennedy, and John Philip Sousa\n4. \"The Star-Spangled Banner\" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, and Henry Mancini\n5. \"The Star-Spangled Banner\" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, Henry Mancini, and Paul Whiteman\n6. \"The Star-Spangled Banner\" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, Henry Mancini, Paul Whiteman, and George M. Cohan\n7. \"The Star-Spangled Banner\" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, Henry Mancini, Paul Whiteman, George M. Cohan, and Edna Ferber\n8. \"The Star-Spangled Banner\" by Francis Scott Key, Robert F. Kennedy, John Philip Sousa, Henry",
+    "generator": "qwen2.5-0.5b-sft",
+    "dataset": "alpaca_eval",
+    "new_tokens": 256,
+    "hit_max_new_tokens": true
+  }
+]

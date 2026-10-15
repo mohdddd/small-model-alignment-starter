@@ -1,0 +1,9 @@
+{
+  "do_sample": false,
+  "max_new_tokens": 512,
+  "repetition_penalty": 1.1,
+  "template": "alpaca",
+  "system_prompt": null,
+  "model": "/kaggle/input/notebooks/mohammadkhan10/02-dpo-hh/repo/outputs/dpo_hh/best",
+  "adapter": null
+}

@@ -1,0 +1,33 @@
+{
+  "initial_eval": {
+    "eval_loss": 0.6931473016738892,
+    "eval_model_preparation_time": 0.0228,
+    "eval_runtime": 3.2298,
+    "eval_samples_per_second": 6.192,
+    "eval_steps_per_second": 1.548,
+    "eval_rewards/chosen": 0.0,
+    "eval_rewards/rejected": 0.0,
+    "eval_rewards/accuracies": 0.0,
+    "eval_rewards/margins": 0.0,
+    "eval_logps/chosen": -175.3554229736328,
+    "eval_logps/rejected": -126.16069030761719,
+    "eval_logits/chosen": 0.4979904294013977,
+    "eval_logits/rejected": -0.06630362570285797
+  },
+  "final_eval": {
+    "eval_loss": 0.10917015373706818,
+    "eval_model_preparation_time": 0.0228,
+    "eval_runtime": 1.2972,
+    "eval_samples_per_second": 15.418,
+    "eval_steps_per_second": 3.855,
+    "eval_rewards/chosen": 1.0266069173812866,
+    "eval_rewards/rejected": -1.2587707042694092,
+    "eval_rewards/accuracies": 1.0,
+    "eval_rewards/margins": 2.2853777408599854,
+    "eval_logps/chosen": -165.08935546875,
+    "eval_logps/rejected": -138.74838256835938,
+    "eval_logits/chosen": 0.33681803941726685,
+    "eval_logits/rejected": 0.16168372333049774,
+    "epoch": 3.0
+  }
+}

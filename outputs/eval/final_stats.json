@@ -1,0 +1,232 @@
+{
+ "uf_dpo_vs_sft_alpaca": {
+  "orig_WLT": [
+   107,
+   143,
+   50
+  ],
+  "swapped_WLT": [
+   114,
+   129,
+   57
+  ],
+  "pos_orig": {
+   "A": 163,
+   "TIE": 50,
+   "B": 87
+  },
+  "pos_swapped": {
+   "B": 98,
+   "A": 145,
+   "TIE": 57
+  },
+  "consistent_WLT": [
+   78,
+   98,
+   124
+  ],
+  "winrate_excl_ties": 0.443,
+  "CI": [
+   0.372,
+   0.517
+  ],
+  "p": 0.1519,
+  "by_length": {
+   "longer": [
+    51,
+    76,
+    80
+   ],
+   "similar": [
+    20,
+    16,
+    40
+   ],
+   "shorter": [
+    7,
+    6,
+    4
+   ]
+  },
+  "A_share_decisive_both": 0.625,
+  "by_length_wr": {
+   "longer": [
+    0.402,
+    0.0328
+   ],
+   "similar": [
+    0.556,
+    0.6177
+   ],
+   "shorter": [
+    0.538,
+    1.0
+   ]
+  }
+ },
+ "hh_dpo_vs_sft_hh": {
+  "orig_WLT": [
+   149,
+   94,
+   57
+  ],
+  "swapped_WLT": [
+   142,
+   109,
+   49
+  ],
+  "pos_orig": {
+   "TIE": 57,
+   "A": 156,
+   "B": 87
+  },
+  "pos_swapped": {
+   "A": 139,
+   "B": 112,
+   "TIE": 49
+  },
+  "consistent_WLT": [
+   108,
+   68,
+   124
+  ],
+  "winrate_excl_ties": 0.614,
+  "CI": [
+   0.54,
+   0.682
+  ],
+  "p": 0.0032,
+  "by_length": {
+   "longer": [
+    27,
+    15,
+    12
+   ],
+   "similar": [
+    34,
+    20,
+    64
+   ],
+   "shorter": [
+    47,
+    33,
+    48
+   ]
+  },
+  "A_share_decisive_both": 0.597,
+  "by_length_wr": {
+   "longer": [
+    0.643,
+    0.0884
+   ],
+   "similar": [
+    0.63,
+    0.0759
+   ],
+   "shorter": [
+    0.588,
+    0.1456
+   ]
+  }
+ },
+ "lora_vs_base_persona": {
+  "orig_WLT": [
+   10,
+   14,
+   0
+  ],
+  "swapped_WLT": [
+   9,
+   15,
+   0
+  ],
+  "pos_orig": {
+   "A": 15,
+   "B": 9
+  },
+  "pos_swapped": {
+   "B": 12,
+   "A": 12
+  },
+  "consistent_WLT": [
+   8,
+   13,
+   3
+  ],
+  "winrate_excl_ties": 0.381,
+  "CI": [
+   0.208,
+   0.591
+  ],
+  "p": 0.3833,
+  "by_length": {
+   "longer": [
+    5,
+    4,
+    0
+   ],
+   "similar": [
+    2,
+    4,
+    2
+   ],
+   "shorter": [
+    1,
+    5,
+    1
+   ]
+  },
+  "A_share_decisive_both": 0.562,
+  "style": [
+   9,
+   0,
+   15
+  ],
+  "helpfulness": [
+   5,
+   13,
+   6
+  ],
+  "safety": [
+   2,
+   1,
+   21
+  ],
+  "by_cat": {
+   "coding": [
+    1,
+    4,
+    1
+   ],
+   "cooking": [
+    4,
+    2,
+    0
+   ],
+   "general_help": [
+    0,
+    5,
+    1
+   ],
+   "safety_sensitive": [
+    3,
+    2,
+    1
+   ]
+  },
+  "by_length_wr": {
+   "longer": [
+    0.556,
+    1.0
+   ],
+   "similar": [
+    0.333,
+    0.6875
+   ],
+   "shorter": [
+    0.167,
+    0.2188
+   ]
+  }
+ }
+}

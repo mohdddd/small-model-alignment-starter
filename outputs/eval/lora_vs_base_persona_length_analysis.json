@@ -1,0 +1,23 @@
+{
+  "pairs": "lora_vs_base_persona.jsonl",
+  "n": 24,
+  "median_len_ratio_candidate_over_baseline": 1.0384615384615385,
+  "candidate_longer": {
+    "loss": 4,
+    "win": 5,
+    "n": 9,
+    "win_rate_excl_ties": 0.5555555555555556
+  },
+  "similar_length": {
+    "loss": 5,
+    "win": 3,
+    "n": 8,
+    "win_rate_excl_ties": 0.375
+  },
+  "candidate_shorter": {
+    "win": 2,
+    "loss": 5,
+    "n": 7,
+    "win_rate_excl_ties": 0.2857142857142857
+  }
+}

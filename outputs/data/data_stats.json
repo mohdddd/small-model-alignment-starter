@@ -1,0 +1,68 @@
+{
+  "sft": {
+    "dataset": "HuggingFaceH4/ultrachat_200k",
+    "train_split": "train_sft",
+    "val_split": "test_sft",
+    "train": {
+      "source_rows": 207865,
+      "seen": 37459,
+      "prompt_too_long": 7458,
+      "kept": 30000
+    },
+    "val": {
+      "source_rows": 23110,
+      "seen": 1243,
+      "prompt_too_long": 243,
+      "kept": 1000
+    },
+    "seed": 42,
+    "max_prompt_tokens": 256
+  },
+  "alpaca": {
+    "source_rows": 805,
+    "kept": 300,
+    "seed": 42
+  },
+  "hh": {
+    "dataset": "Anthropic/hh-rlhf",
+    "train_split": "train",
+    "val_split": "test",
+    "train": {
+      "source_rows": 160800,
+      "seen": 49364,
+      "multi_turn_or_invalid": 34293,
+      "prompt_too_long": 71,
+      "kept": 15000
+    },
+    "val": {
+      "source_rows": 8552,
+      "seen": 3393,
+      "multi_turn_or_invalid": 2387,
+      "prompt_too_long": 6,
+      "kept": 1000
+    },
+    "seed": 42,
+    "max_prompt_tokens": 256
+  },
+  "uf": {
+    "dataset": "HuggingFaceH4/ultrafeedback_binarized",
+    "train_split": "train_prefs",
+    "val_split": "test_prefs",
+    "train": {
+      "source_rows": 61135,
+      "seen": 21092,
+      "prompt_too_long": 3443,
+      "score_tie": 2476,
+      "kept": 15000
+    },
+    "val": {
+      "source_rows": 2000,
+      "seen": 1400,
+      "prompt_too_long": 191,
+      "score_tie": 197,
+      "kept": 1000
+    },
+    "seed": 42,
+    "max_prompt_tokens": 256
+  }
+}

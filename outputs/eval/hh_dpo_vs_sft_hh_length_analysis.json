@@ -1,0 +1,26 @@
+{
+  "pairs": "hh_dpo_vs_sft_hh.jsonl",
+  "n": 300,
+  "median_len_ratio_candidate_over_baseline": 0.8603351955307262,
+  "candidate_longer": {
+    "loss": 17,
+    "win": 30,
+    "tie": 7,
+    "n": 54,
+    "win_rate_excl_ties": 0.6382978723404256
+  },
+  "similar_length": {
+    "win": 52,
+    "tie": 37,
+    "loss": 29,
+    "n": 118,
+    "win_rate_excl_ties": 0.6419753086419753
+  },
+  "candidate_shorter": {
+    "tie": 13,
+    "win": 67,
+    "loss": 48,
+    "n": 128,
+    "win_rate_excl_ties": 0.5826086956521739
+  }
+}

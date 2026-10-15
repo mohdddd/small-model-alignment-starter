@@ -1,0 +1,26 @@
+{
+  "pairs": "uf_dpo_vs_sft_alpaca.jsonl",
+  "n": 300,
+  "median_len_ratio_candidate_over_baseline": 1.4462151394422311,
+  "candidate_longer": {
+    "loss": 107,
+    "tie": 31,
+    "win": 69,
+    "n": 207,
+    "win_rate_excl_ties": 0.39204545454545453
+  },
+  "similar_length": {
+    "loss": 29,
+    "win": 31,
+    "tie": 16,
+    "n": 76,
+    "win_rate_excl_ties": 0.5166666666666667
+  },
+  "candidate_shorter": {
+    "loss": 7,
+    "win": 7,
+    "tie": 3,
+    "n": 17,
+    "win_rate_excl_ties": 0.5
+  }
+}

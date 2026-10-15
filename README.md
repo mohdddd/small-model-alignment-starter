@@ -45,23 +45,52 @@ settings to `outputs/<run>/config.json`.
 
 ## Running on Kaggle (T4 x2)
 
-| Notebook | Inputs | How to run | Time |
+| Notebook | Inputs | How it was run | Time (actual) |
 |---|---|---|---|
 | `00_dev_smoke` | – | interactive | ~15 min |
-| `01_sft` | – | Save & Run All (Commit) | ~1.5–2 h |
-| `02_dpo_hh` | pa2-sft output | Commit | ~2–2.5 h |
-| `03_dpo_uf` | pa2-sft output | Commit | ~2–2.5 h |
-| `04_lora_persona` | – | Commit | ~15 min |
-| `05_generate` | outputs of 01–04 | Commit | ~0.5–1 h |
-| `06_judge` | pa2-generate output | Benchmark notebook, Commit, no GPU | ~0.5 h |
+| `01_sft` | – | Save & Run All (Commit) | 1.51 h SFT (+ base generations on cuda:1) |
+| `02_dpo_hh` | `01_sft` output | Commit | 0.90 h |
+| `03_dpo_uf` | `01_sft` output | Commit | 1.47 h |
+| `04_lora_persona` | – | Commit | ~2 min training |
+| `05_generate` | outputs of 01–04 | Commit | ~45 min |
+| `06_judge` | `05_generate` output | Kaggle **Benchmarks** notebook, no GPU, run interactively (benchmark notebooks cannot be committed; the judge is resumable) | ~40 min per judging pass |
 
-Import each with **File → Import Notebook → GitHub** (or upload the `.ipynb`). The first cell of every
+Import each with **File → Import Notebook** (or upload the `.ipynb`). The first cell of every
 notebook clones this repo and installs dependencies without touching Kaggle's PyTorch.
 
-Local tests: `PYTHONPATH=. python -m pytest -q tests/`
+Local tests: `PYTHONPATH=. python -m pytest -q tests/` (public adapter tests + edge cases + parser tests).
 
-## Output locations (inside each notebook's saved output)
+## Results (judge: `google/gemini-3.6-flash`, every pair judged in both A/B orders)
 
-`outputs/data/` datasets + `data_stats.json` · `outputs/sft|dpo_hh|dpo_uf/{config.json,metrics.jsonl,summary.json,*_curves.png,best/,final/}`
-· `outputs/lora_persona/` · `outputs/generations/*.json` (+ `.settings.json`) · `outputs/pairs/*.jsonl` ·
-`outputs/eval/*_judged.jsonl`, `*.summary.json`, `*.failures.jsonl`
+A model gets a win only if it wins in **both** orders; disagreement counts as a tie.
+
+| Comparison | Eval set | DPO W / L / T | Win rate (excl. ties) | 95% CI | p (sign test) |
+|---|---|---|---|---|---|
+| HH-RLHF DPO vs SFT | HH synthetic, 300 | 108 / 68 / 124 | 61.4% | 54–68% | 0.003 |
+| UltraFeedback DPO vs SFT | AlpacaEval subset, 300 (seed 42) | 78 / 98 / 124 | 44.3% | 37–52% | 0.15 |
+| LoRA-DPO vs SmolLM2-360M-Instruct | persona prompts, 24 | 8 / 13 / 3 | 38.1% | 21–59% | 0.38 |
+
+Persona criteria (LoRA vs base, both orders): style 9/0/15, helpfulness 5/13/6, safety 2/1/21.
+Full numbers: `outputs/eval/final_stats.json`.
+
+## Report
+
+`report/report.pdf` (source `report/report.tex`; results figure: `python scripts/make_results_fig.py outputs report/fig/results.png`).
+
+## Where everything is
+
+| What | Path |
+|---|---|
+| Dataset filtering counts (all tracks) | `outputs/data/data_stats.json` |
+| Fixed AlpacaEval subset (300, seed 42) | `outputs/data/alpaca_eval_300_seed42.json` |
+| Run configs (values actually used) | `outputs/{sft,dpo_hh,dpo_uf,lora_persona}/config.json` |
+| Training metrics / summaries / selected checkpoint | `outputs/<run>/metrics.jsonl`, `summary.json`, `best_checkpoint_meta.json` |
+| Training plots | `outputs/sft/sft_curves.png`, `outputs/dpo_hh/dpo_curves.png`, `outputs/dpo_uf/dpo_curves.png`, `outputs/lora_persona/lora_curves.png` |
+| Generations + decoding settings (+ 3-prompt sanity checks) | `outputs/generations/*.json`, `*.settings.json` |
+| Blinded pairwise files (original and A/B-swapped) | `outputs/pairs/*.jsonl` |
+| Judgments, summaries, length analysis, swap consistency | `outputs/eval/` |
+| Run logs | `outputs/logs/` |
+
+Model weights (SFT, both DPO policies, LoRA adapter) are not committed because of GitHub size limits;
+they are in the saved outputs of the Kaggle notebooks `01_sft`–`04_lora_persona`
+(`outputs/<run>/best/`, `outputs/<run>/final/`, `outputs/lora_persona/adapter/`).

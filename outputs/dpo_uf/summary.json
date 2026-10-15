@@ -1,0 +1,19 @@
+{
+  "best_val_reward_acc": 0.7360000014305115,
+  "best_val_reward_margin": 0.6402315497398376,
+  "final": {
+    "val_loss": 0.5356801748275757,
+    "val_reward_acc": 0.7350000143051147,
+    "val_reward_margin": 0.7643477916717529,
+    "val_chosen_reward": -0.14520880579948425,
+    "val_rejected_reward": -0.9095566272735596,
+    "val_policy_chosen_logp": -344.8816833496094,
+    "val_policy_rejected_logp": -304.357177734375
+  },
+  "steps": 469,
+  "hours": 1.465981057551172,
+  "peak_gpu_mem_gb": {
+    "cuda:0": 12.99,
+    "cuda:1": 3.59
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "alpaca-0000",
+    "instruction": "What are the names of some famous actors that started their careers on Broadway?",
+    "output": "1. Marlon Brando - \"The Last Temptation of Christ\" (1963), \"A Streetcar Named Desire\" (1947)\n2. Robert De Niro - \"Taxi Driver\" (1976), \"Goodfellas\" (1972)\n3. Tom Hiddleston - \"The Crown\" (2011), \"The Crown\" (2011)\n4. John Lithgow - \"The Bridge on the Drina\" (1958), \"The Bridge on the Drina\" (1958)\n5. Christopher Plummer - \"The Lion King\" (1994), \"The Lion King\" (1994)\n6. Tim Burton - \"Schindler's List\" (1993), \"Schindler's List\" (1993)\n7. Michael Cimino - \"Parade\" (1972), \"Parade\" (1972)\n8. Stanley Kubrick - \"2001: A Space Odyssey\" (1968), \"2001: A Space Odyssey\" (1968)\n9. James Whitmore - \"",
+    "generator": "qwen2.5-0.5b-dpo-uf",
+    "dataset": "alpaca_eval",
+    "new_tokens": 256,
+    "hit_max_new_tokens": true
+  },
+  {
+    "id": "alpaca-0002",
+    "instruction": "Hi, my sister and her girlfriends want me to play kickball with them. Can you explain how the game is played, so they don't take advantage of me?",
+    "output": "Sure! Here's a basic description of kickball:\n\nKickball is a team sport that involves two teams of four players each. The objective of the game is to score more points than your opponents by throwing a ball into their goal area.\n\nTo start, both teams line up on opposite sides of the field, facing the opposing team's goal line. Each player takes a ball from the other team and throws it towards their own goal area. If the ball lands in the opponent's goal area, that team scores a point.\n\nThe rules for kicking are as follows: \n\n- Players must use their feet to throw the ball.\n- Players cannot touch or move the ball while it is in flight.\n- Players can only use one hand when throwing the ball.\n- Players may not make contact with the ball before it touches the ground.\n\nOnce the ball has landed in the opponent's goal area, the team that scored the most points wins the game.\n\nIf you're interested in playing kickball with your sisters and friends, here are some tips to help you get started:\n\n1. Choose a suitable location: Look for an open space where you can safely throw the ball without being seen by others.\n\n2. Set up the field: Make sure there are no obstacles like trees or fences around",
+    "generator": "qwen2.5-0.5b-dpo-uf",
+    "dataset": "alpaca_eval",
+    "new_tokens": 256,
+    "hit_max_new_tokens": true
+  },
+  {
+    "id": "alpaca-0003",
+    "instruction": "What is some cool music from the 1920s?",
+    "output": "1. \"The Star-Spangled Banner\" by Francis Scott Key - This patriotic song was written during the War of 1812 and became a national anthem in the United States.\n\n2. \"I'm Gonna Be\" by The Beatles - This iconic rock 'n' roll hit, released in 1967, features a catchy melody and memorable lyrics about the American Dream.\n\n3. \"Take It Easy\" by Chuck Berry - This classic country song, recorded in 1945, showcases Berry's unique style and signature guitar playing.\n\n4. \"Blue Moon of Kentucky\" by Bob Dylan - This folk song, originally performed in 1962, tells the story of a man who dreams of winning the lottery but ultimately fails to do so.\n\n5. \"On the Road Again\" by Jimi Hendrix - This blues-rock masterpiece, released in 1967, features Hendrix's distinctive guitar playing and his famous \"horns\" sound.\n\n6. \"Don't Stop Believin'\" by Journey - This soulful ballad, first released in 1967, explores themes of hope, perseverance, and faith in the face of adversity.\n\n7. \"I Want You Back\" by Marvin Gay",
+    "generator": "qwen2.5-0.5b-dpo-uf",
+    "dataset": "alpaca_eval",
+    "new_tokens": 256,
+    "hit_max_new_tokens": true
+  }
+]

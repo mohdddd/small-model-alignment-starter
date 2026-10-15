@@ -1,0 +1,38 @@
+{
+  "candidate": "qwen2.5-0.5b-dpo-uf",
+  "baseline": "qwen2.5-0.5b-sft",
+  "judge_model": "google/gemini-3.6-flash",
+  "n_pairs": 300,
+  "n_judged": 300,
+  "n_failed_unjudged": 0,
+  "failure_rate": 0.0,
+  "overall": {
+    "n": 300,
+    "wins": 107,
+    "losses": 143,
+    "ties": 50,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.428,
+    "win_rate_ties_half": 0.44,
+    "win_rate_over_all": 0.3566666666666667
+  },
+  "by_category": {
+    "alpaca_eval": {
+      "n": 300,
+      "wins": 107,
+      "losses": 143,
+      "ties": 50,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.428,
+      "win_rate_ties_half": 0.44,
+      "win_rate_over_all": 0.3566666666666667
+    }
+  },
+  "position_counts": {
+    "A": 163,
+    "B": 87,
+    "TIE": 50,
+    "other": 0
+  },
+  "total_attempts": 300
+}

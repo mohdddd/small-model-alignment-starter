@@ -1,0 +1,100 @@
+{
+  "candidate": "smollm2-360m-lora-dpo",
+  "baseline": "smollm2-360m-instruct",
+  "judge_model": "google/gemini-3.6-flash",
+  "n_pairs": 24,
+  "n_judged": 24,
+  "n_failed_unjudged": 0,
+  "failure_rate": 0.0,
+  "overall": {
+    "n": 24,
+    "wins": 9,
+    "losses": 15,
+    "ties": 0,
+    "unknown": 0,
+    "win_rate_excl_ties": 0.375,
+    "win_rate_ties_half": 0.375,
+    "win_rate_over_all": 0.375
+  },
+  "by_category": {
+    "coding": {
+      "n": 6,
+      "wins": 1,
+      "losses": 5,
+      "ties": 0,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.16666666666666666,
+      "win_rate_ties_half": 0.16666666666666666,
+      "win_rate_over_all": 0.16666666666666666
+    },
+    "cooking": {
+      "n": 6,
+      "wins": 4,
+      "losses": 2,
+      "ties": 0,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.6666666666666666,
+      "win_rate_ties_half": 0.6666666666666666,
+      "win_rate_over_all": 0.6666666666666666
+    },
+    "general_help": {
+      "n": 6,
+      "wins": 1,
+      "losses": 5,
+      "ties": 0,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.16666666666666666,
+      "win_rate_ties_half": 0.16666666666666666,
+      "win_rate_over_all": 0.16666666666666666
+    },
+    "safety_sensitive": {
+      "n": 6,
+      "wins": 3,
+      "losses": 3,
+      "ties": 0,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.5,
+      "win_rate_ties_half": 0.5,
+      "win_rate_over_all": 0.5
+    }
+  },
+  "position_counts": {
+    "A": 12,
+    "B": 12,
+    "TIE": 0,
+    "other": 0
+  },
+  "persona": {
+    "style": {
+      "n": 24,
+      "wins": 13,
+      "losses": 0,
+      "ties": 11,
+      "unknown": 0,
+      "win_rate_excl_ties": 1.0,
+      "win_rate_ties_half": 0.7708333333333334,
+      "win_rate_over_all": 0.5416666666666666
+    },
+    "helpfulness": {
+      "n": 24,
+      "wins": 6,
+      "losses": 16,
+      "ties": 2,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.2727272727272727,
+      "win_rate_ties_half": 0.2916666666666667,
+      "win_rate_over_all": 0.25
+    },
+    "safety": {
+      "n": 24,
+      "wins": 2,
+      "losses": 3,
+      "ties": 19,
+      "unknown": 0,
+      "win_rate_excl_ties": 0.4,
+      "win_rate_ties_half": 0.4791666666666667,
+      "win_rate_over_all": 0.08333333333333333
+    }
+  },
+  "total_attempts": 24
+}

@@ -221,9 +221,10 @@ NOTEBOOKS["06_judge"] = [
     md("# pa2-judge — Task 7: pairwise judging with Kaggle model proxy\n"
        "Must run as a **Kaggle Benchmarks task notebook** (so `kaggle_benchmarks` + the free model proxy are available): "
        "create it from kaggle.com/benchmarks (Create task) or Copy & Edit a benchmark starter notebook, then paste these cells. "
-       "Accelerator: None. Internet on. **Add Input → Notebook Output → pa2-generate.**\n"
-       "Batches of 5, ≥5 s sleep before every request, 3 retries, judgments checkpointed after every batch, failures "
-       "logged, `--reuse_judgments` resumes. Run the smoke cell interactively first, then **Save & Run All (Commit)**."),
+       "Accelerator: None. Internet on. **Add Input → Notebook Output → 05_generate.**\n"
+       "Benchmark notebooks have no Save & Run All (Commit), so this notebook was run **interactively**. That is safe: "
+       "batches of 5, ≥5 s sleep before every request, 3 retries, judgments checkpointed after every batch, failures "
+       "logged, and `--reuse_judgments` resumes, so a disconnected cell is simply re-run. Do not use 'Generate Task'."),
     code(f'''GH_USER, REPO = "{GH_USER}", "{REPO}"
 %cd /kaggle/working
 !rm -rf repo && git clone -q https://github.com/{{GH_USER}}/{{REPO}}.git repo
@@ -270,7 +271,21 @@ for name in PAIRS:
     print(f"\\n== {name}")
     A.main(["--pairs", f"outputs/pairs/{name}.jsonl", "--judged", f"outputs/eval/{name}_judged.jsonl",
             "--out", f"outputs/eval/{name}_length_analysis.json"])'''),
-    code("!cd outputs && zip -qr /kaggle/working/judge_outputs.zip eval pairs && ls -la eval"),
+    md("Position-bias control: judge every pair again with A/B swapped (another ~125 requests). "
+       "Combined verdict = win only if the model wins in BOTH orders; disagreement = tie."),
+    code('''import swap_consistency as SC
+for name in PAIRS:
+    SC.main(["make", "--pairs", f"outputs/pairs/{name}.jsonl", "--out", f"outputs/pairs/{name}_swapped.jsonl"])
+    J.main(["--pairs_path", f"outputs/pairs/{name}_swapped.jsonl", "--output_path", f"outputs/eval/{name}_swapped_judged.jsonl",
+            "--judge_model", JUDGE, "--batch_size", "5", "--sleep_seconds", "5", "--max_retries", "3", "--reuse_judgments"])
+    SC.main(["combine", "--orig", f"outputs/eval/{name}_judged.jsonl", "--swapped", f"outputs/eval/{name}_swapped_judged.jsonl",
+             "--out", f"outputs/eval/{name}_swap_consistency.json"])'''),
+    md("Archive results (the benchmark image has no `zip` binary) and download via the link."),
+    code('''import shutil
+from IPython.display import FileLink
+shutil.make_archive("/kaggle/working/judge_outputs", "zip", "/kaggle/working/repo/outputs")
+os.chdir("/kaggle/working")
+FileLink("judge_outputs.zip")'''),
 ]
 
 

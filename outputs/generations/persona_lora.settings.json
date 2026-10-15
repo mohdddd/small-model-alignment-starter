@@ -1,0 +1,9 @@
+{
+  "do_sample": false,
+  "max_new_tokens": 512,
+  "repetition_penalty": 1.1,
+  "template": "chat",
+  "system_prompt": null,
+  "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "adapter": "/kaggle/input/notebooks/mohammadkhan10/04-lora-persona/repo/outputs/lora_persona/adapter"
+}

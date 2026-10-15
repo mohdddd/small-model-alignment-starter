@@ -1,0 +1,10 @@
+{
+  "step": 200,
+  "val_loss": 0.5416287779808044,
+  "val_reward_acc": 0.7360000014305115,
+  "val_reward_margin": 0.6402315497398376,
+  "val_chosen_reward": -0.00450585363432765,
+  "val_rejected_reward": -0.6447373628616333,
+  "val_policy_chosen_logp": -343.47467041015625,
+  "val_policy_rejected_logp": -301.7090148925781
+}
